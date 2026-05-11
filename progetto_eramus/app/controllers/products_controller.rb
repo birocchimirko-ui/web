@@ -104,11 +104,12 @@ class ProductsController < ApplicationController
 
   # DELETE /products/:id (ELIMINAZIONE LOGICA)
   def destroy
-    if @product.update(active: false)
-      render json: { message: "Prodotto rimosso con successo (eliminazione logica)" }
-    else
-      render json: { errors: @product.errors.full_messages }, status: :unprocessable_entity
-    end
+  @product = Product.find(params[:id])
+  if @product.destroy
+    render json: { message: "Prodotto eliminato con successo" }, status: :ok
+  else
+    render json: { errors: "Impossibile eliminare il prodotto" }, status: :unprocessable_entity
+   
   end
 
   private
