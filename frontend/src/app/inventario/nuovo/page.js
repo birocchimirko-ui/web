@@ -42,7 +42,7 @@ export default function NuovoProdotto() {
       if (savedUser) {
         const user = JSON.parse(savedUser);
         // Assicurati che nel tuo stato formData la chiave sia corretta (user_id o executor_id)
-        setFormData(prev => ({ ...prev, user_id: user.id }));
+        setFormData(prev => ({ ...prev, executor_id: user.id }));
       }
     } catch (err) {
       console.error("Errore inizializzazione:", err);

@@ -18,8 +18,8 @@ class StockMovementsController < ApplicationController
         prodotto: m.product&.name || "Prodotto eliminato",
         tipo: m.movement_type, 
         quantita: m.quantity,
-        operatore: m.operator&.name || m.operator&.username || "N/D",
-        esecutore: m.executor&.name || m.executor&.username || "N/D",
+        operatore: m.operator&.username || "N/D",
+        esecutore: m.executor&.username || "N/D",
         note: m.notes
       }
     }

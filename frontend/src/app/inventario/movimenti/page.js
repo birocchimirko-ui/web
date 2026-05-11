@@ -91,7 +91,8 @@ export default function StoricoMovimenti() {
                   <th>Prodotto</th>
                   <th className="text-center">Tipo</th>
                   <th className="text-center">Quantità</th>
-                  <th className="text-center">Operatore</th>
+                  <th className="text-center">Operatore(PC)</th>
+                  <th className="text-center">Esecutore</th>
                   <th className="pe-4">Note / Causale</th>
                 </tr>
               </thead>
@@ -126,6 +127,12 @@ export default function StoricoMovimenti() {
                         <span className="badge bg-white text-dark border fw-normal shadow-sm">
                           <i className="fa-solid fa-user-gear me-1 text-secondary"></i>
                           {m.operatore}
+                        </span>
+                      </td>
+                      <td className="text-center">
+                        <span className="badge bg-white text-dark border fw-normal shadow-sm">
+                          <i className="fa-solid fa-user-check me-1 text-secondary"></i>
+                          {m.esecutore}
                         </span>
                       </td>
                       <td className="pe-4 text-muted small">

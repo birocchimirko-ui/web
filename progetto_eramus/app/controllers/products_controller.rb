@@ -46,16 +46,16 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     @product.creator_id = @current_user.id
+    esecutore_id = params[:product][:executor_id] || @current_user.id
     @product.active = true
 
     if @product.save
       if @product.quantity > 0
-      # REGISTRAZIONE AUTOMATICA: Carico iniziale
-       nota_movimento = 
-       if @product.product_type.esito_invio == "problema"
+        
+        nota_movimento = 
+        if @product.product_type.esito_invio == "problema"
         "Carico parziale. Nota: #{@product.product_type.corpo_messaggio}"
-
-       else "Carico iniziale merce consegnata."
+      else "Carico iniziale merce consegnata."
 
        end
 
@@ -65,7 +65,7 @@ class ProductsController < ApplicationController
         movement_type: :carico,
         movement_date: Time.current,
         operator_id: @current_user.id,
-        executor_id: chosen_executor_id, # Chi ha mosso la merce
+        executor_id: esecutore_id,
         notes: nota_movimento)
 
       end
@@ -129,7 +129,7 @@ end
       :quantity, 
       :price, 
       :min_threshold,
-      :operator_id, 
+      :executor_id, 
       product_type_attributes: [:id, :data_invio, :esito_invio, :corpo_messaggio]
     )
   end

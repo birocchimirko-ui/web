@@ -55,12 +55,14 @@ export default function NuovoMovimento() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSubmitting(true);
+    console.log("Dati inviati:", formData);
     try {
       await api.post('/stock_movements', { stock_movement: formData });
       setMessage({ type: 'success', text: 'Movimento registrato con successo!' });
       setTimeout(() => router.push('/inventario'), 1500);
     } catch (err) {
-      const errorMsg = err.response?.data?.errors?.join(', ') || "Errore durante il salvataggio.";
+      const errors = err.response?.data?.errors;
+      const errorMsg = Array.isArray(errors) ? errors.join(', ') : (errors || "Errore durante il salvataggio.");
       setMessage({ type: 'danger', text: errorMsg });
     } finally {
       setSubmitting(false);
