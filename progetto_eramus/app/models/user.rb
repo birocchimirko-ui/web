@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   has_secure_password
 
+  after_create :invia_benvenuto
+
   # Validazioni di base
   validates :username, presence: true, uniqueness: true
   validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
@@ -32,5 +34,10 @@ class User < ApplicationRecord
   # Metodo per controllare se l'utente può provare a loggarsi
   def attivo?
     stato_account == true
+  end
+
+  private
+  def invia_benvenuto
+    UserMailer.benvenuto_email(self).deliver_now
   end
 end

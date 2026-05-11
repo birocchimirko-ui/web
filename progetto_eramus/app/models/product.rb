@@ -4,6 +4,9 @@ class Product < ApplicationRecord
   belongs_to :creator, class_name: "User", foreign_key: "creator_id"
   has_many :stock_movements, dependent: :destroy
 
+# Callback per il controllo scorte dopo ogni aggiornamento della quantità
+  after_save :check_stock_threshold, if: :saved_change_to_quantity?
+
   # Permette di salvare i dati della spedizione insieme al prodotto
   accepts_nested_attributes_for :product_type
 
