@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  utente: one
+  data_accesso: 2026-05-04 16:32:51
+  esito: MyString
+  indirizzo_ip: MyString
+
+two:
+  utente: two
+  data_accesso: 2026-05-04 16:32:51
+  esito: MyString
+  indirizzo_ip: MyString

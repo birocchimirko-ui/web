@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyText
+  quantity: 1
+  price: 9.99
+  min_threshold: 1
+  product_type: one
+  creator_id: 
+
+two:
+  name: MyString
+  description: MyText
+  quantity: 1
+  price: 9.99
+  min_threshold: 1
+  product_type: two
+  creator_id: 
