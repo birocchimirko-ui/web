@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
     end
 
     if user.authenticate(params[:password])
-      user.update(tentativi_login_falliti: 0)
+      user.update(tentativi_login_falliti: 0, ultimo_login: Time.current)
       registra_log(user, "Successo") 
 
       token = JsonWebToken.encode(user_id: user.id, role: user.role.nome_ruolo)
