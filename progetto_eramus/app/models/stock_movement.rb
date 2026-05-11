@@ -28,9 +28,9 @@ class StockMovement < ApplicationRecord
     else
       product.decrement!(:quantity, quantity)
     end
-  end
+  
 
     # Richiama il controllo soglia che abbiamo scritto nel modello Product
-    product.check_stock_threshold
+    product.check_stock_threshold if product.respond_to?(:check_stock_threshold)
   end
 end
