@@ -22,3 +22,8 @@
 * **Username:** `admin_test`
 * **Password:** `Password_sicura1!`
 
+## Funzionalità Principali
+* **Dashboard:** Grafico prodotti per categoria, riepilogo movimenti, numero totale utenti e valore magazzino.
+* **Sicurezza:** Blocco account dopo 5 tentativi falliti e log degli accessi.
+* **Inventario:** tabella prodotti  con impaginazione dotata di filtri per la ricerca, con possibilità di modificare/eliminare i prodotti e pagina dedicata al lo storico novimenti di magazzino
+* **Gestione Utenti:** pagina esclusiva per l'admin in cui può vedere, creare e bloccare gli utenti
