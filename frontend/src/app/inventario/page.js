@@ -42,6 +42,7 @@ export default function GestioneInventario() {
     if (window.confirm("Sei sicuro di voler eliminare questo prodotto? Verranno eliminati anche tutti i movimenti associati nello storico.")) {
       try {
         await api.delete(`/products/${id}`);
+        setProducts(prevProducts => prevProducts.filter(p => p.id !== id));
         // Ricarica la lista per mostrare i dati aggiornati
         fetchProducts(); 
       } catch (err) {

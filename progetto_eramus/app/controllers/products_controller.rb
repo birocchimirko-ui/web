@@ -111,6 +111,7 @@ class ProductsController < ApplicationController
     render json: { errors: "Impossibile eliminare il prodotto" }, status: :unprocessable_entity
    
   end
+end
 
   private
 
